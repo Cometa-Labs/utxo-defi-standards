@@ -17,6 +17,7 @@ Copy `protocols/_template.md`. Required sections:
 - **token standards used** — which CIPs, and how (e.g. "LP tokens are plain native assets, no CIP-68 metadata").
 - **concurrency approach** — batcher/order-book, multiple pool UTXOs, Hydra, none (accepts contention).
 - **composability surface** — what an external protocol can actually hook into: LP tokens usable as collateral elsewhere? Datum schema stable/public? Reference-input-readable state?
+- **Tx3 interface** — machine-readable transaction-template artifacts when available. Use `tools/tx3-interface.md`; mark unavailable/draft/usable/verified rather than implying unverified ABI coverage.
 - **gotchas** — the things that bite integrators specifically (fee-on-LP-token quirks, datum versioning breaks, batcher delay windows, etc).
 - **source** — links to docs/audits/source the entry is based on.
 - **last_verified** — date.
@@ -33,6 +34,26 @@ Cross-protocol, not single-protocol. A pattern belongs here if at least two prot
 - Code/CBOR/datum shapes in fenced blocks, not prose descriptions of field order.
 - Don't restate eUTxO basics inside a protocol entry — link to `cardano/eutxo-model.md` instead.
 - Keep line-level facts falsifiable: "batcher settles every ~20s" not "batcher settles quickly."
+
+## Tx3 interface entries
+
+Tx3 interface slots describe transaction shapes, not validator guarantees. Include them when a protocol publishes `.tx3` source, generated TII, or a source-backed draft maintained by the protocol's agent.
+
+Required fields:
+
+- `status` — `not_available`, `draft`, `usable`, or `verified`.
+- `tx3_version` — the language/interface version, or `unknown`.
+- `last_generated` — generation date for TII, or `unknown`.
+- artifact table — source, TII, and tests paths/URLs.
+- template table — template name, standard action, settlement model, reference-input requirements, position-token impact, caveats.
+
+Rules:
+
+- Use Cardamom's normalized action vocabulary where possible: `swap`, `add_liquidity`, `remove_liquidity`, `stake`, `unstake`, `lend`, `borrow`, `repay`, `withdraw`, `open_cdp`, `add_collateral`, `mint`, `burn`, `liquidation`, `claim_reward`, `unknown_protocol_interaction`.
+- Split order submission and settlement templates for batcher protocols.
+- Mark reverse-engineered datum/redeemer layouts as `draft` or `partial` in notes.
+- Do not mark `verified` without source, maintainer confirmation, or passing conformance/devnet tests.
+- See `tools/tx3-interface.md` for the full slot and agent guidance.
 
 ## Safety
 

@@ -21,6 +21,7 @@ A shared reference for agents building, integrating, or auditing DeFi on UTXO-mo
 | [patterns/composability.md](patterns/composability.md) | Cross-protocol patterns: LP tokens as collateral, oracle reads, the missing shared-ABI problem |
 | [protocols/](protocols/) | One file per protocol: mechanism, token standards used, composability surface, gotchas |
 | [tools/cardamom.md](tools/cardamom.md) | Cardamom wallet-intelligence API, skills manifest, adapter limits, and Cardamom-specific constants |
+| [tools/tx3-interface.md](tools/tx3-interface.md) | Tx3/TII interface artifact slots for protocol entries and agent integration guidance |
 | [other-utxo-chains.md](other-utxo-chains.md) | Bitcoin (RGB, DLCs, Runes), Ergo, and cross-UTXO-chain interop |
 
 ## Protocol Coverage

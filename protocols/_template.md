@@ -40,6 +40,26 @@ What an external protocol can hook into:
 - Is its datum schema published and stable, or reverse-engineered/unstable?
 - Is any state exposed via a reference-input-readable UTXO?
 
+## Tx3 interface
+
+Use `tools/tx3-interface.md`. Use `Not available` when the protocol has no known `.tx3` or TII artifact.
+
+`status:` not_available | draft | usable | verified
+`tx3_version:` <v1beta0 | unknown>
+`last_generated:` YYYY-MM-DD | unknown
+
+| Artifact | Path / URL | Version | Notes |
+|---|---|---|---|
+| Tx3 source | <path / URL / Not available> | <version / unknown> | <human-reviewed templates, source caveat, or Not available> |
+| TII | <path / URL / Not available> | <version / unknown> | <generated artifact, digest, or Not available> |
+| Tests | <path / URL / Not available> | <version / unknown> | <devnet/fixture coverage or Not available> |
+
+### Templates
+
+| Template | Standard action | Settlement model | Requires reference input | Position token impact | Notes |
+|---|---|---|---|---|---|
+| <tx name / Not available> | <Cardamom action vocabulary / unknown> | <atomic / batcher-order / batcher-settlement / unknown> | <yes / no / unknown> | <mints LP / burns receipt / none / unknown> | <schema caveats, version, source> |
+
 ## Gotchas
 
 Things that bite integrators specifically — settlement delay windows, datum versioning breaks, fee quirks, minimum position sizes, etc.
